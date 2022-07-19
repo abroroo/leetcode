@@ -1,6 +1,9 @@
-# My Solution to LeetCode problems
+# My Solution to LeetCode and Codewars problems
 
 List is periodically updated
+
+## LeetCode
+
 
  ### #118. Pascal's Triangle
  
@@ -173,3 +176,180 @@ return nums1
 
 };
 ```
+
+## CodeWars
+
+### #The Hashtag Generator
+
+```
+function generateHashtag (str) {
+  let res = [];
+  if (str.trim() === ''){
+    res = false
+  } else {
+    res = "#" + str.split(' ').filter(w => (w !== '')).map(x => x[0].toUpperCase() + x.replace(x[0], '')).join('')
+}
+  
+  return res.length > 140 ? false : res
+}
+
+```
+
+### #Extract the domain name from a URL
+
+```
+function domainName(url){
+return url.replace('http://', '').replace('https://','').replace('www.','').replace('.com','').split(/[/.?#]/)[0];
+}
+```
+
+### #Number of trailing zeros of N!
+
+```
+function zeros (n) {
+  
+let numZ = 0;
+
+for (let i = 5; Math.floor(n / i) >= 1; i *= 5){
+  numZ += Math.floor(n / i);
+}
+
+  return numZ;
+}
+```
+
+### #Bit Counting
+
+```
+def count_bits(n):
+  bnum = "{0:b}".format(n)
+  return sum(int(digit) for digit in bnum)
+
+```
+
+### #Valid Parentheses
+
+```
+function validParentheses(parens){
+  let arr = [];
+  let model = {
+    "(": ")"
+  }
+
+for (let i = 0; i < parens.length; i++){
+  if(parens[i] === "("){
+    arr.push(parens[i]);
+  } else {
+    let closing = arr.pop();
+    if (parens[i] !== model[closing]){
+      return false;
+    }
+  }
+}
+if (arr.length !== 0){return false;}
+
+ return true;
+}
+```
+
+### #Moving Zeros To The End
+
+```
+var moveZeros = function (arr) {
+   let zero = []
+  let others = []
+  let together = []
+  
+    for (let i =0; i <= arr.length-1; i++){
+      if (arr[i] === 0){
+        zero.push(arr[i])
+        }
+      else{ 
+        others.push(arr[i])
+      }
+    }
+  together = others.concat(zero)
+  return together
+}
+```
+
+### #Find the next perfect square!
+
+```
+function findNextSquare(sq) {
+  if (sq % Math.sqrt(sq) === 0){
+    return Math.pow((Math.sqrt(sq) + 1), 2);
+  } else {
+      return -1;
+  }
+
+}
+```
+
+### #Binary Addition
+
+```
+function addBinary(a,b) {
+ let sum = a + b; 
+ return (sum).toString(2);
+}
+```
+
+### #Does my number look big in this?
+
+```
+function narcissistic(value) {
+  let arrValue = value.toString().split("");
+  let newArr = [];
+
+  for(var i=0; i<arrValue.length;i++) arrValue[i] = parseInt(arrValue[i], 10);
+
+  for (let j = 0; j < arrValue.length; j++){
+  newArr.push(Math.pow(arrValue[j], arrValue.length));
+  }
+  if (newArr.reduce((a, b) => a + b, 0) === value){
+    return true
+  } else {
+    return false
+  }
+
+}
+```
+
+### #Sum of two lowest positive integers
+
+```
+function sumTwoSmallestNumbers(numbers) {  
+   
+  var arr = numbers.sort((a, b) => a - b).slice(0, 2);
+
+  return arr[0] + arr[1];
+     
+}
+
+```
+
+### #Disemvowel Trolls
+
+```
+function disemvowel(str) {
+  return str.replace(/[aeiou]/gim, "");
+}
+```
+
+### #Stop gninnipS My sdroW!
+
+```
+function spinWords(str) {
+  let arr = str.split(' ');
+  
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].length > 4) {
+      arr[i] = arr[i].split('').reverse().join('');
+    }
+  }
+  return arr.join(' ');
+}
+```
+
+### #
