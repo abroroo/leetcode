@@ -4,7 +4,43 @@ List is periodically updated
 
 ## LeetCode
 
+ ### #724. Find Pivot Index
+ 
+ ```
+ let pivotIndex = function(nums) {
+  if (nums.length === 0 ) return 1
+  if (nums.length === 1 ) return 0
+  
+  let sum = nums.reduce((a,b) => a + b);
+  let leftSum = 0;
+  
+  for (let i = 0; i < nums.length; i++){
+    if (leftSum === sum - nums[i] - leftSum){
+      return i
+    }
+    leftSum += nums[i]
+  }
 
+  return -1
+};
+ 
+ ```
+
+
+ ### #1480. Running Sum of 1d Array
+ 
+ ```
+ let runningSum = function(nums) {
+  let arr = [nums[0]];
+    for(let i = 1; i < nums.length; i++){
+        let sum = nums.slice(0, i+1)
+        arr.push(sum.reduce((a, b) => a + b))
+    }
+  return arr
+};
+ ```
+ 
+ 
  ### #118. Pascal's Triangle
  
 ```
