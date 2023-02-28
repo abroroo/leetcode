@@ -3,7 +3,34 @@
 List is periodically updated
 
 ## LeetCode
+### #125 Valid Palindrome
 
+```
+
+var isPalindrome = function(s) {
+    let i = 0;
+    let j = s.length - 1;
+
+    while(i < j){
+        let left = s[i].toLowerCase()
+        let right = s[j].toLowerCase()
+
+        if (/\W|_/g.test(left)){
+            i++;
+        } else if (/\W|_/g.test(right)){
+            j--;
+        } else if (left == right){
+            i++;
+            j--;
+        } else {
+            return false
+        }
+    }
+    return true
+};
+
+
+```
 ### #1 Two Sum
 
 ```
