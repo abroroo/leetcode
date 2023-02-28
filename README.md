@@ -4,7 +4,7 @@ List is periodically updated
 
 ## LeetCode
 
-### #14 Longes Common Prefix
+### #14 Longest Common Prefix
 ```
 
 var longestCommonPrefix = function(strs) {
