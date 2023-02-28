@@ -3,6 +3,38 @@
 List is periodically updated
 
 ## LeetCode
+
+### #13 Roman Integer
+
+```
+var romanToInt = function(s) {
+    let hash = {
+        'I' : 1,
+        'V' : 5,
+        'X' : 10,
+        'L' : 50,
+        'C' : 100,
+        'D' : 500,
+        'M' : 1000
+    }
+
+    let res = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        let curr = hash[s[i]]
+        let next = hash[s[i + 1]]
+
+        if (curr < next) {
+            res += next - curr;
+            i++ // only by 1 since loop will also increment by 1, which in total 2
+        } else {
+            res += curr
+        }
+    } 
+    return res
+};
+```
+
 ### #125 Valid Palindrome
 
 ```
