@@ -4,6 +4,22 @@ List is periodically updated
 
 ## LeetCode
 
+### #1 Two Sum
+
+```
+var twoSum = function(nums, target) {
+   let hash = {}
+   for (let i = 0; i < nums.length; i++){
+       if(hash[target - nums[i]] != undefined){
+           return [hash[target - nums[i]], i]
+       }
+       hash[nums[i]] = i;
+   }
+};
+
+```
+
+
  ### #724. Find Pivot Index
  
  ```
