@@ -23,6 +23,7 @@ List is periodically updated
 const isSymmetric = function(root) {
     // tree with null root considered symmetric
     if (root == null) return true
+    
     // check if same first two nodes of the root
     return isSame(root.left, root.right)
 };
@@ -30,10 +31,13 @@ const isSymmetric = function(root) {
 const isSame = (leftN, rightN) => {
     // if both nodes are null then tree symmetric
     if (leftN == null && rightN == null) return true
+    
     // if only one of them null, no longer symmetric
     if (leftN == null || rightN == null) return false
+    
     // if two values are not equal , not symmetric
     if (leftN.val !== rightN.val) return false
+    
     // recursivly check both outer sides of the seconf node and inner sides respectively all over the height of the tree
     return isSame(leftN.left, rightN.right) && isSame(leftN.right, rightN.left);
 }
