@@ -5,6 +5,27 @@ List is periodically updated
 ## LeetCode
 
 ### #7 Reverse Integer
+
+Using Math formulas to achieve the result
+
+```
+var reverse = function(x) {
+    let result = 0;
+    // until x is zero
+    while (x != 0){
+        // add last digit of x derived as(x % 10) to the end of result as (num * 10) + anyNum
+        result = (result * 10) + (x % 10)
+
+        // remove the last digit of x from x using formula below
+        x = (x - (x % 10))/10
+    }
+
+// check if within the range [-2^31, 2^31 -1] before returning result
+    if (result <= -Math.pow(2, 31) || result >= Math.pow(2, 31) - 1) return 0
+    return result
+};
+```
+By converting to string, less optimal
 ```
 var reverse = function(x) {
     // get the absolute value(non negative) and convert to String
