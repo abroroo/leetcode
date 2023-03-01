@@ -4,6 +4,20 @@ List is periodically updated
 
 ## LeetCode
 
+### #7 Reverse Integer
+```
+var reverse = function(x) {
+    // get the absolute value(non negative) and convert to String
+    let absVal = Math.abs(x).toString()
+    // reverse and join
+    absVal = absVal.split("").reverse().join("")
+
+// check if in range [-2^31, 2^31 -1] else return 0
+    return x > 0 ? (absVal < Math.pow(2, 31) -1 ? absVal : 0) : (-absVal > -Math.pow(2, 31) ? -absVal : 0)
+};
+
+```
+
 ### #5 Longest Palindrome Substring
 
 ```
