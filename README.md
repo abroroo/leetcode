@@ -4,6 +4,27 @@ List is periodically updated
 
 ## LeetCode
 
+### #26 Remove Duplicate From Sorted Array
+
+```
+
+const removeDuplicates = function(nums) {
+    // we take first value of array as uniq
+    let uniq = 0 
+    for (let i = 1; i < nums.length; i++){
+        // if next value after uniq is not same number, we found not duplicate number, otherwise skip to the next iteration 
+        if (nums[i] !== nums[uniq]){
+            // shift uniq to that place 
+            uniq++
+            // make nums at new uniq equal to nums at i
+            nums[uniq] = nums[i]
+        } 
+    }
+    // nums[uniq] is last value , so we add + 1 to return length of nums
+    return uniq + 1
+};
+
+```
 ### #21 Merge Two Sorted Linked Lists
 ```
 
