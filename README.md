@@ -16,7 +16,7 @@ const removeDuplicates = function(nums) {
         if (nums[i] !== nums[uniq]){
             // shift uniq to that place 
             uniq++
-            // make nums at new uniq equal to nums at i
+            // set it to new found not duplicate number, which is at i
             nums[uniq] = nums[i]
         } 
     }
