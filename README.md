@@ -4,6 +4,38 @@ List is periodically updated
 
 ## LeetCode
 
+
+### #3 Longest Substring Without Repeating Characters
+
+```
+var lengthOfLongestSubstring = function(s) {
+    // set to store not repating chars
+    let set = new Set();
+
+    let left = 0;
+    let size = 0;
+
+    // save time
+    if (s.length == 0 ) return 0
+    if (s.length == 1 ) return 1
+
+    for (i = 0; i < s.length; i++){
+        // if s[i] exists delete it and everything before it 
+        while(set.has(s[i])){
+            // delete everything beofre s[i]
+            set.delete(s[left])
+            left++
+        }
+        // add new s[i] to set
+        set.add(s[i])
+        // position of desired substring starts at left and ends at i 
+        // since i and left initially stared with 0, we add 1
+        size = Math.max(size, i - left + 1) 
+    }
+    return size
+
+};
+```
 ### #101 Symmetric Tree
 
 ```
