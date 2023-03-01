@@ -4,6 +4,41 @@ List is periodically updated
 
 ## LeetCode
 
+### #2 Add Two Numbers
+
+```
+const addTwoNumbers = function(l1, l2) {
+    // new node to store result
+    let result = new ListNode(0);
+    let tail = result;
+    let carry = 0
+
+// while there are nodes in any of them
+    while( l1 || l2 || carry){
+        let val1 = l1 ? l1.val : 0
+        let val2 = l2 ? l2.val : 0
+        let sum = val1 + val2 + carry
+
+        // val if sum is 13, val is 3
+        let val = sum % 10
+
+        // carry is 1 if sum 13 
+        carry = sum >= 10 ? 1 : 0
+        
+        // append val of 3 to the result
+        tail.next = new ListNode(val)
+
+        // poin tail to next node, we need to do so to keep track of last node of the list to be able to append in the end each time
+        tail = tail.next
+
+// go to next node for another iteration
+        if (l1) l1 = l1.next
+        if (l2) l2 = l2.next
+    }
+    return result.next
+};
+
+```
 
 ### #3 Longest Substring Without Repeating Characters
 
