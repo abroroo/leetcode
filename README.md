@@ -8,7 +8,7 @@ List is periodically updated
 ### #3 Longest Substring Without Repeating Characters
 
 ```
-var lengthOfLongestSubstring = function(s) {
+const lengthOfLongestSubstring = function(s) {
     // set to store not repating chars
     let set = new Set();
 
