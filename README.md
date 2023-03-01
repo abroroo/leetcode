@@ -4,6 +4,46 @@ List is periodically updated
 
 ## LeetCode
 
+### #5 Longest Palindrome Substring
+
+```
+var longestPalindrome = function(s) {
+    // it's palindrome if only two chars 
+    if (s.length < 2) return s
+
+    let maxLength = 1
+    let start = 0
+
+// loop over each char and point low and high left and right respectively until they reach the beginning or end
+    for (let i = 0; i < s.length; i++){
+        let low = i -1
+        let high = i + 1
+// shift to left until it points to a different character
+        while (low >= 0 && s[low] == s[i]){
+            low--;
+        }
+
+// move high to right until it points to a different character
+        while (high <= s.length && s[high] == s[i]){
+            high++;
+        }
+        // move further left right until they points to diff char
+        while (low >= 0 && high <= s.length && s[low] == s[high]){
+            low--;
+            high++;
+        }
+// calculate the length of resulted palindrome 
+        let length = high - low -1
+        // set start and max position of the resulted palindrome
+        if (maxLength < length){
+            maxLength = length
+            start = low + 1 
+        }
+    }
+    // return resulted palindrome 
+    return s.substring(start,start + maxLength)
+};
+```
 ### #2 Add Two Numbers
 
 ```
