@@ -4,6 +4,29 @@ List is periodically updated
 
 ## LeetCode
 
+### #209 Minimum Size Sub Array
+
+```
+const minSubArrayLen = function(target, nums) {
+    let r = 0;
+    let l = 0;
+    let minLenSeen = Infinity
+    let currentSum = nums[0];
+
+    while (l <= r && r < nums.length) {
+        if (currentSum >= target) {
+            minLenSeen = Math.min(minLenSeen, r - l + 1);
+            currentSum -= nums[l]
+            l++;
+        } else {
+            r++;
+            currentSum += nums[r];
+        }
+    }
+    return minLenSeen === Infinity ? 0 : minLenSeen
+};
+
+```
 ### #7 Reverse Integer
 
 Using Math formulas to achieve the result
