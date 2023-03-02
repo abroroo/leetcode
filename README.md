@@ -4,6 +4,43 @@ List is periodically updated
 
 ## LeetCode
 
+### #16. 3Sum Closest
+```
+const threeSumClosest = function(nums, target) {
+    nums.sort((a, b) => a - b);
+
+    let closerSum = Infinity;
+
+    // there hould be two nums left for l, r pointers, so in total we have: i, l ,r : to sum up. 
+    for (let i = 0; i < nums.length - 2; i++) {
+        // if [2,2,4,7,8] second two is skipped , not test 2 again for total sum  
+        if (i > 0 && nums[i] === nums[i - 1]) continue;
+
+        //since i started with 0, left is starting with i + 1
+        let l = i + 1;
+        // right is starting with last num, since i only comes till nums.length - 2
+        let r = nums.length - 1
+
+        while (l < r) {
+            let currentTotal = nums[i] + nums[l] + nums[r]
+            if (currentTotal === target) return currentTotal
+                // if for example target = 12, closerSum = 15 and currentTotal 17
+                // then 3 < 5 and closerSum stays as it is because it's more closer to 12
+            closerSum = Math.abs(target - closerSum) < Math.abs(target - currentTotal) ? closerSum : currentTotal
+
+            // move pointer to right if currentTotal is less than needed else move left 
+            if (currentTotal < target) {
+                l++;
+            } else {
+                r--;
+            }
+        }
+    }
+    return closerSum
+}
+
+
+```
 ### #209 Minimum Size Sub Array
 
 ```
