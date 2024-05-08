@@ -6,7 +6,7 @@ List is periodically updated
 
 ### #16. 3Sum Closest
 ```
-const threeSumClosest = function(nums, target) {
+const threeSumClosest = function(nums, target) {     
     nums.sort((a, b) => a - b);
 
     let closerSum = Infinity;
